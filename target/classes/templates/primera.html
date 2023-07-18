@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>test-oracle</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+	<h1 align="center">
+		V3.0 - Benvinguts a l'aplicacio des del nou laboratori: <span th:text="${appName}"></span>
+	</h1>
+	<br>
+	<h2 align="center">Aplicació de test d'accés a la BBDD SQLServer Remot per OpenShift.</h2>
+	<h2 align="center">La BBDD SQLServer es troba a l'entorn de PreProducció de NO DGP.</h2>
+	<h2 align="center">URL de connexió a la BBDD SQLServer: <span th:text="${urlbbdd}"></span>
+	</h2>
+	<h2 align="center">
+		Cada execució insereix <span th:text="${capacitat}"></span> files a la
+		taula d'SQLServer.
+	</h2>
+	<h2 align="center">
+		Data d'execució: <span th:text="${data}"></span> <br> Hora
+		d'execució: <span th:text="${hora}"></span>
+	</h2>
+
+	<!--  <div th:if="${individuos != null and !individuos.empty}"> -->
+	<div>
+		<table border="2" align="center">
+			<tr>
+				<th>Nom</th>
+				<th>Cognom</th>
+				<th>Edat</th>
+				<th>Telefon</th>
+				<th>Correu</th>
+			</tr>
+			<tr th:each="individuo : ${individuos}">
+				<td th:text="${individuo.NOMBRE}">Mostra el Nom</td>
+				<td th:text="${individuo.APELLIDO}">Mostra Cognom</td>
+				<td th:text="${individuo.TELEFONO}">Mostra Telefon</td>
+				<td th:text="${individuo.CORREO}">Mostra Correu</td>
+				<td th:text="${individuo.EDAD}">Mostra Edat</td>
+			</tr>
+		</table>
+	</div>
+	<!--  <div th:if="${individuos == null or individuos.empty}">La llista no te informacio.</div>  -->
+
+</body>
+</html>
